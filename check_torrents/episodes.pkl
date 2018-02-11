@@ -1,0 +1,8 @@
+(dp0
+S'onepiece'
+p1
+I826
+sS'boruto'
+p2
+I45
+s.
