@@ -31,8 +31,8 @@ class MyHTMLParser(HTMLParser): # I heard 3rd party library BeautifulSoup makes 
                     torrentLink = attrs[1][1]
                     request = urllib2.Request(url = torrentLink, data=None, headers = headers) # makes request to download torrent file
                     torrentData = urllib2.urlopen(request)
-                    _, params = cgi.parse_header(torrentData.headers.get('Content-Disposition', ''))
-                    filename = urllib2.unquote(params['filename'])
+                    _, params = cgi.parse_header(torrentData.headers.get('Content-Disposition', '')) # get filename from the response headers
+                    filename = urllib2.unquote(params['filename']) # unquote will convert the URL filename to regular filename. For example, changing %20 to a space
                     dataToWrite = torrentData.read()
                     with open('/users/admin/Downloads/{}'.format(filename), 'wb') as saveTorrent: # save torrent file in downloads folder
                         saveTorrent.write(dataToWrite)
