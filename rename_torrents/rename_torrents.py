@@ -1,4 +1,9 @@
+#!/usr/bin/python
 import os, re
+
+if not os.path.isdir('/Volumes/Data/Torrents/'): # Quit program if volume 'Data' on external drive is not mounted
+    print('/Volumes/Data/Torrents/ is not available.')
+    quit()
 
 files = os.listdir('/Volumes/Data/Torrents/')
 showNamesAndPaths = { # more shows can be added as long as it's 720p and the download site maintains the same naming conventions. Key is show name and value is path where it will be moved to after renaming
